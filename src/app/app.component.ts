@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    template: `
+        <h3>Binding innerHTML</h3>
+        <p>Bound value:</p>
+        <p class="e2e-inner-html-interpolated">{{htmlSnippet}}</p>
+        <p>Result of binding to innerHTML:</p>
+        <p class="e2e-inner-html-bound" [innerHTML]="htmlSnippet"></p>
+    `
 })
 export class AppComponent {
-  title = 'Angular-Security-Sanitization-Demo1';
+    htmlSnippet = 'Template <script>alert("0wned")</script> <b>Syntax</b>'
 }
