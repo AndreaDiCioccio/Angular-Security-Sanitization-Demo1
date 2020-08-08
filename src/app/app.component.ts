@@ -4,12 +4,16 @@ import { Component } from '@angular/core';
     selector: 'app-root',
     template: `
         <h3>Binding innerHTML</h3>
-        <p>Bound value:</p>
-        <p class="e2e-inner-html-interpolated">{{htmlSnippet}}</p>
+        <p>Interpolated value:</p>
+        <!-- il contenuto interpolato viene sempre sottoposto a escape e l' html non viene interpretato -->
+        <p>{{htmlSnippet}}</p>
         <p>Result of binding to innerHTML:</p>
-        <p class="e2e-inner-html-bound" [innerHTML]="htmlSnippet"></p>
+        <!-- con innerHTML il'html viene interpretato e sanificato -->
+        <p [innerHTML]="htmlSnippet"></p>
     `
 })
 export class AppComponent {
+    
     htmlSnippet = 'Template <script>alert("0wned")</script> <b>Syntax</b>'
+
 }
