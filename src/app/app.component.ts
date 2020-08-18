@@ -5,13 +5,14 @@ import { Component } from '@angular/core';
     template: `
         <h3>Binding innerHTML</h3>
         <p>Interpolated value:</p>
-        <!-- il contenuto interpolato viene sempre sottoposto a escape e l' html non viene interpretato -->
+        <!-- the interpolated content is always escaped and the html is not interpreted -->
         <p>{{htmlSnippet}}</p>
         <p>Result of binding to innerHTML:</p>
-        <!-- con innerHTML il'html viene interpretato e sanificato -->
+        <!-- using innerHTML the html is interpreted and sanitized -->
         <p [innerHTML]="htmlSnippet"></p>
     `
 })
+
 export class AppComponent {
     
     htmlSnippet = 'Template <script>alert("0wned")</script> <b>Syntax</b>'
